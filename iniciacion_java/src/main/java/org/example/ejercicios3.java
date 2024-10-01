@@ -18,6 +18,10 @@ public class ejercicios3 {
         if (edad >= voto){
             System.out.println("Enhorabuena " + nombre + ". Puedes votar");
         }else{
+            while (edad < 0){
+                System.out.println("Vuelve a introducir tu edad correctamente");
+                edad = entrada.nextInt();
+            }
             resto = voto - edad;
             System.out.println("Lo siento " + nombre + ". No puedes votar");
             System.out.println("Te faltan " + resto + " años para ser ,mayor de edad");
