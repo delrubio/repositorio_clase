@@ -44,6 +44,7 @@ public class t2_ejercicio1 {
         System.out.println("Tu fecha es: " + dd + "/" + mm + "/" + yy); //Muestro la fecha introducida por el usuario
         suma = (dd + mm + yy); //Sumamos la fecha
         System.out.println("La suma de tu fecha es: " + dd + "+" + mm + "+" + yy + "=" + suma); //Muestro el resultado de la suma de la fecha
+
         String suma_tmp = Integer.toString(suma); //Converto el resultado a string
         String num1_tmp = suma_tmp.substring(0, 1); //Sacamos cada caracter del resultado en una variable _tmp
         String num2_tmp = suma_tmp.substring(1, 2);
