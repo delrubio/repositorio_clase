@@ -3,6 +3,7 @@ package org.example;
 import com.sun.source.util.SourcePositions;
 
 import java.time.LocalDateTime;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.SortedMap;
 
@@ -60,27 +61,47 @@ public class CosasJava {
     }
     public void excepciones(){
 
-        Scanner entrada = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
+        boolean error = false;
 
-        System.out.println("Dividendo: ");
+        System.out.println("dividendo :");
         int dividendo = 0; //InputMismatchException
 
-        if (entrada.hasNextInt()){
-            dividendo = entrada.nextInt();
+        if (teclado.hasNextInt()){
+            dividendo = teclado.nextInt();
         }else{
-            System.out.println("Has introducido un formato incorrecto. No es un número");
+            System.out.println("Has introducido un formato incorrecto. No es un número...");
+            error = true;
         }
 
-        System.out.println("Divisor: ");
-        String divisor = entrada.next();
         int divisor_entero = 0;
-        try{
-            divisor_entero = Integer.parseInt(divisor);
-        }catch (NumberFormatException e2){
-            System.out.println("EL divisor introducido no es un número" + e2.getMessage());
+
+        if (error==false){
+            System.out.println("Divisor:");
+            String divisor = teclado.next();
+
+            try{
+                divisor_entero = Integer.parseInt(divisor); //NumberFormatException
+            }catch(NumberFormatException e1){
+                System.out.println("El divisor introducido no es un número. " + e1.getMessage());
+                error = true;
+            }
         }
 
-        System.out.println("Resultado: " + dividendo + divisor);
+        int resultado = 0; //ArithmeticException
+
+        if (error==false){
+            try{
+                resultado = dividendo/divisor_entero;
+
+            }catch(ArithmeticException e2){
+                System.out.println("No se puede dividir entre 0. " + e2.getMessage());
+            }finally{
+                System.out.println("Resultado : " + resultado);
+            }
+
+        }
+
     }
     public static void modos(){
 
