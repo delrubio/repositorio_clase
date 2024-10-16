@@ -52,7 +52,7 @@ public class CosasJava {
             System.out.println("Las palabras " + palabra3 + " y " + palabra4 + " son diferentes");
         }
 
-        if (palabra3.equalsIgnoreCase(palabra4)==true){
+        if (palabra3.equalsIgnoreCase(palabra4)){
             System.out.println("Las palabras " + palabra3 + " y " + palabra4 + " son iguales");
         }else{
             System.out.println("Las palabras " + palabra3 + " y " + palabra4 + " son diferentes");
@@ -76,7 +76,7 @@ public class CosasJava {
 
         int divisor_entero = 0;
 
-        if (error==false){
+        if (!error){
             System.out.println("Divisor:");
             String divisor = teclado.next();
 
@@ -90,7 +90,7 @@ public class CosasJava {
 
         int resultado = 0; //ArithmeticException
 
-        if (error==false){
+        if (!error){
             try{
                 resultado = dividendo/divisor_entero;
 
