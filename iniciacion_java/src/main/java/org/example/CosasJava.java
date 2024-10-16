@@ -3,7 +3,6 @@ package org.example;
 import com.sun.source.util.SourcePositions;
 
 import java.time.LocalDateTime;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.SortedMap;
 
@@ -61,47 +60,27 @@ public class CosasJava {
     }
     public void excepciones(){
 
-        Scanner teclado = new Scanner(System.in);
-        boolean error = false;
+        Scanner entrada = new Scanner(System.in);
 
-        System.out.println("dividendo :");
+        System.out.println("Dividendo: ");
         int dividendo = 0; //InputMismatchException
 
-        if (teclado.hasNextInt()){
-            dividendo = teclado.nextInt();
+        if (entrada.hasNextInt()){
+            dividendo = entrada.nextInt();
         }else{
-            System.out.println("Has introducido un formato incorrecto. No es un número...");
-            error = true;
+            System.out.println("Has introducido un formato incorrecto. No es un número");
         }
 
+        System.out.println("Divisor: ");
+        String divisor = entrada.next();
         int divisor_entero = 0;
-
-        if (error==false){
-            System.out.println("Divisor:");
-            String divisor = teclado.next();
-
-            try{
-                divisor_entero = Integer.parseInt(divisor); //NumberFormatException
-            }catch(NumberFormatException e1){
-                System.out.println("El divisor introducido no es un número. " + e1.getMessage());
-                error = true;
-            }
+        try{
+            divisor_entero = Integer.parseInt(divisor);
+        }catch (NumberFormatException e2){
+            System.out.println("EL divisor introducido no es un número" + e2.getMessage());
         }
 
-        int resultado = 0; //ArithmeticException
-
-        if (error==false){
-            try{
-                resultado = dividendo/divisor_entero;
-
-            }catch(ArithmeticException e2){
-                System.out.println("No se puede dividir entre 0. " + e2.getMessage());
-            }finally{
-                System.out.println("Resultado : " + resultado);
-            }
-
-        }
-
+        System.out.println("Resultado: " + dividendo + divisor);
     }
     public static void modos(){
 
@@ -207,7 +186,7 @@ public class CosasJava {
                     System.out.println("El año introducido no es correcto.");
                     error=true;
                 }
-            break;
+                break;
 
             case "2":
                 System.out.println("Introduce tu edad: ");
@@ -226,7 +205,7 @@ public class CosasJava {
                 }else{
                     anyo_nacimiento = anyo_actual-edad;
                 }
-            break;
+                break;
             default:
                 System.out.println("El modo no existe.");
                 error=true;
@@ -244,7 +223,7 @@ public class CosasJava {
             } else if (anyo_nacimiento>=1982 && anyo_nacimiento<=1994) {
                 System.out.println("Eres de la mejor generación, MILLENIAL!! :)");
             } else if (anyo_nacimiento>=1995 && anyo_nacimiento<=anyo_actual) {
-                System.out.println("Eres de la mejor generación ZZZZ");
+                System.out.println("Eres de la generación Centenial");
             }else{
                 System.out.println("No tienes generación.");
             }
