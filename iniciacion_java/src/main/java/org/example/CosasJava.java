@@ -244,7 +244,7 @@ public class CosasJava {
             } else if (anyo_nacimiento>=1982 && anyo_nacimiento<=1994) {
                 System.out.println("Eres de la mejor generación, MILLENIAL!! :)");
             } else if (anyo_nacimiento>=1995 && anyo_nacimiento<=anyo_actual) {
-                System.out.println("Eres de la generación Centenial");
+                System.out.println("Eres de la mejor generación ZZZZ");
             }else{
                 System.out.println("No tienes generación.");
             }
