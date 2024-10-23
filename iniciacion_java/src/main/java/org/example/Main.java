@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 //        CosasJava cosasJava = new CosasJava();
 //        cosasJava.modos2();
-        t2_bucles t2Bucles = new t2_bucles();
-        t2Bucles.ejercicio2();
+        t2_isbn t2Isbn = new t2_isbn();
+        t2Isbn.practica3();
     }
 }
