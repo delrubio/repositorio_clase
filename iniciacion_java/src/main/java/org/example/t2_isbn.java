@@ -18,7 +18,7 @@ public class t2_isbn {
         String isbn = teclado.next();
         System.out.println(isbn.length());
 
-        for (int i=0; i<10; i++) {//hacemos un bucle for para contar caracter por caracter del 1 al 10
+        for (int i = 0; i < 10; i++) {//hacemos un bucle for para contar caracter por caracter del 1 al 10
             String num_tmp = String.valueOf(isbn.charAt(i)); //comprobamos el valor del número actual
             char c = isbn.charAt(i); //convrtimos a caracter el numero actual
             if (i == 9 && c == 'X'){ //comprobamos si el contador va por el último número y si es una x
@@ -35,7 +35,7 @@ public class t2_isbn {
                 mult--; // restamos 1 al multiplicador
             }
         }
-        if (resultado%11 == 0){ //comprobamos que el resultado es multiplo de 11
+        if (resultado % 11 == 0){ //comprobamos que el resultado es multiplo de 11
             System.out.println("ISBN es correcto"); //si es correcto
         }else{
             System.out.println("ISBN Incorrecto!"); //si es incorrecto
