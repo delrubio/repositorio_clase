@@ -7,6 +7,6 @@ public class Main {
 //        CosasJava cosasJava = new CosasJava();
 //        cosasJava.modos2();
         t2_random t2Random = new t2_random();
-        t2Random.ejercicio1();
+        t2Random.ejercicio2();
     }
 }
