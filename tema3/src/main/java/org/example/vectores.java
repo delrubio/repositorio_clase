@@ -55,5 +55,28 @@ public class vectores {
             System.out.print(" " + numeros[i] + ", ");
         }
     }
-    public void ejercicio3(){}
+    public void ejercicio5(){
+        Scanner teclado = new Scanner(System.in);
+
+        int numeros[] = new int[4];
+
+        numeros[0] = 1;
+        numeros[1] = 8;
+        numeros[2] = 4;
+        numeros[3] = 2;
+
+        int ult_pos = numeros[numeros.length-1];
+
+        for(int i=numeros.length-1; i>=0; i--){
+            if (i==0){
+                numeros[i] = ult_pos;
+            }else{
+                numeros[i] = numeros[i-1];
+            }
+        }
+
+        for (int i=0; i<numeros.length; i++){
+            System.out.println(numeros[i]);
+        }
+    }
 }
