@@ -5,6 +5,6 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
         vectores Vectores = new vectores();
-        Vectores.ejercicio5();
+        Vectores.ejercicio6();
     }
 }

@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.LinkedTransferQueue;
 
 public class vectores {
     public void vectores(){
@@ -77,6 +78,29 @@ public class vectores {
 
         for (int i=0; i<numeros.length; i++){
             System.out.println(numeros[i]);
+        }
+    }
+    public void ejercicio6(){
+        Scanner teclado = new Scanner(System.in);
+
+        int numeros[] = new int[5];
+        int num_med = numeros.length/2;
+        int num_ult = numeros[numeros.length-1];
+        int num = 0;
+
+        System.out.println("Dime números para introducir en un array");
+
+        for (int i=0; i<numeros.length; i++) {
+            numeros[i] = teclado.nextInt();
+        }
+
+        for(int i=numeros.length-1; i>=0; i--){
+            num = numeros[numeros.length-i];
+            if(i==num_med){
+                continue;
+            }else if (numeros[i] == num){
+                System.out.println("si");
+            }
         }
     }
 }
