@@ -58,18 +58,12 @@ public class samurais {
                 System.out.println("Resultado " + equipo1[batalla] + "vs" + equipo2[batalla]);
                 batalla = 0;
                 puntos2 ++;
-            }else {
-                System.out.println("Batalla " + i + " samurais " + batalla + ". Empate");
-                System.out.println("Resultado " + equipo1[batalla] + "vs" + equipo2[batalla]);
-                batalla = 0;
-            }
-
-            if (batalla < 7 && equipo1[batalla] > equipo2[batalla]){
+            }else if (batalla < 7 && equipo1[batalla] > equipo2[batalla]){
                 System.out.println("Batalla " + i + " samurais " + batalla + ". Ganador el equipo1");
                 System.out.println("Resultado " + equipo1[batalla] + "vs" + equipo2[batalla]);
                 batalla ++;
                 puntos1 ++;
-            }else if (batalla <= 7 && equipo1[batalla] < equipo2[batalla]){
+            }else if (batalla < 7 && equipo1[batalla] < equipo2[batalla]){
                 System.out.println("Batalla " + i + " samurais " + batalla + ". Ganador el equipo2");
                 System.out.println("Resultado " + equipo1[batalla] + "vs" + equipo2[batalla]);
                 batalla ++;
