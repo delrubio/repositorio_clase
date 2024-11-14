@@ -25,7 +25,7 @@ public class navidad {
         }
         System.out.println(resultado);
     }
-    public void rule(){
+    public static void rule(){
         Scanner teclado = new Scanner(System.in);
         Random random = new Random();
 
@@ -49,36 +49,83 @@ public class navidad {
             System.out.println("ERROR. El número no es válido.");
             return;
         }else {
-            if (num != 0){
+            if (num != 0) {
                 System.out.println("Dime un color (rojo / negro)");
                 color = teclado.next();
-            }
 
-            boolean color_existe = Arrays.asList(colores).contains(color);
+                boolean color_existe = Arrays.asList(colores).contains(color);
 
-            if (!color_existe){
-                System.out.println("ERROR. EL color cno es válido.");
-                return;
-            }else {
-                System.out.println("Elige el tipo de número (par / impar)");
-                tipo = teclado.next();
-
-                boolean tipo_existe = Arrays.asList(pares).contains(tipo);
-
-                if (!tipo_existe){
-                    System.out.println("ERROR. El número no es correcto");
+                if (!color_existe) {
+                    System.out.println("ERROR. EL color cno es válido.");
                     return;
+                } else {
+                    System.out.println("Elige el tipo de número (par / impar)");
+                    tipo = teclado.next();
+
+                    boolean tipo_existe = Arrays.asList(pares).contains(tipo);
+
+                    if (!tipo_existe) {
+                        System.out.println("ERROR. El número no es correcto");
+                        return;
+                    }
                 }
             }
         }
 
         int numero_sorteo = numeros[random.nextInt(37)];
         String color_sorteo = colores[random.nextInt(2)];
-        String pare_sorteo = "";
+        String pares_sorteo = "";
         if (numero_sorteo%2 == 0){
-            pare_sorteo = "par";
+            pares_sorteo = "par";
         }else {
-            pare_sorteo = "impar";
+            pares_sorteo = "impar";
         }
+
+        if(num != 0 && numero_sorteo == num && color_sorteo.equals(color) && pares_sorteo.equals(pares)){
+            System.out.println("HAS GANADO");
+        } else if (num != 0 && color_sorteo.equals(color)){
+            System.out.println("HAS ACERTADO EL COLOR");
+        } else if (num != 0 && pares_sorteo.equals(pares)){
+            System.out.println("HAS ACERTADO EL TIPO");
+        } else if (num==numero_sorteo && num != 0) {
+            System.out.println("HAS ACERTADO SOLO EL NÚMERO");
+        } else if (num == 0 && numero_sorteo == 0) {
+            System.out.println("HAS GANADO Y LOS DEMÁS USUARIOS PIERDEN");
+        }else {
+            System.out.println("HAS PERDIDO");
+        }
+    }
+    public static void ordenar(){
+
+        int numeros[] = {1,6,6,8,15,1,10,8,15,7};
+        int numeros_aux[] = new int[numeros.length];
+
+        Arrays.sort(numeros);
+        System.out.println(Arrays.toString(numeros));
+
+        int num = 34;
+        int num_igual = 0;
+
+        int posicion = Arrays.binarySearch(numeros, num);
+
+        System.out.println(posicion);
+
+//MI SOLUCIÓN
+//        for (int i = 0; i < numeros.length; i ++){
+//           if (num_igual != numeros[i]){
+//               numeros_aux[i] = numeros[i];
+//           }else {
+//               continue;
+//           }
+//            num_igual = numeros[i];
+//        }
+        for (int i = 0; i < numeros.length; i ++){
+            if (i!=numeros.length -1 && numeros[i] == numeros[i +1]){
+                System.out.println("DUPLICADO " + numeros[i]);
+            }else {
+                numeros_aux[i] = numeros[i];
+            }
+        }
+        System.out.println(Arrays.toString(numeros_aux));
     }
 }
