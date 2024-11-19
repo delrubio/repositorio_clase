@@ -128,4 +128,83 @@ public class navidad {
         }
         System.out.println(Arrays.toString(numeros_aux));
     }
+    public static void duplicado(){
+
+        int numeros[] = {1,6,6,8,15,1,10,8,15,7};
+
+        Arrays.sort(numeros);
+        System.out.println(Arrays.toString(numeros));
+
+        int num = 34;
+        int num_igual = 0;
+        int tamanyo = 0;
+
+        int posicion = Arrays.binarySearch(numeros, num);
+
+        System.out.println(posicion);
+
+//MI SOLUCIÓN
+//        for (int i = 0; i < numeros.length; i ++){
+//           if (num_igual != numeros[i]){
+//               numeros_aux[i] = numeros[i];
+//           }else {
+//               continue;
+//           }
+//            num_igual = numeros[i];
+//        }
+
+        for (int i = 0; i < numeros.length; i ++){
+            if (i!=numeros.length -1 && numeros[i] == numeros[i +1]){
+                System.out.println("DUPLICADO " + numeros[i]);
+                numeros[i] = 0;
+            }else {
+                tamanyo ++;
+            }
+        }
+
+        int[] limpio = new int[tamanyo];
+        int pos = 0;
+
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] != 0){
+                limpio[pos] = numeros[i];
+                pos ++;
+            }
+        }
+
+        System.out.println(Arrays.toString(numeros));
+    }
+    public static void duplicado2(){
+        Random random = new Random();
+
+        int numeros[] = {1,6,6,8,15,1,10,8,15,7};
+
+        Arrays.sort(numeros);
+        System.out.println(Arrays.toString(numeros));
+
+        boolean repetir = true;
+
+        while (repetir){
+            repetir = false;
+            for (int i = 0; i < numeros.length; i++){
+                if (i!=numeros.length -1 && numeros[i] == numeros[i +1]){
+                    System.out.println("DUPLICADO " + numeros[i]);
+                    numeros[i] = random.nextInt(49) +1;
+                    repetir = true;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(numeros));
+
+    }
+    public static void duplicados_district(){
+        int numeros[] = {1,6,6,8,15,1,10,8,15,7};
+        System.out.println(Arrays.toString(numeros));
+        int limpio[] = Arrays.stream(numeros).distinct().toArray();
+        System.out.println(Arrays.toString(limpio));
+    }
+    public static void tablas(){
+
+    }
 }
