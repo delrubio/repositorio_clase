@@ -4,7 +4,7 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        primitiva Primitiva = new primitiva();
-        primitiva.ej_primitiva();
+        matrices Matrices = new matrices();
+        matrices.ejercicio3();
     }
 }
