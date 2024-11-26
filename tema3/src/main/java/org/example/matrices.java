@@ -202,8 +202,8 @@ public class matrices {
             tabla [i][0] = teclado.next();
         }
 
-        for (int i = 1; i < tabla.length; i++) {
-            System.out.println("Dime el nombre de la asignatura");
+        for (int i = 1; i < tabla[0].length; i++) {
+            System.out.println("Dime el nombre de la asignatura" );
             tabla [0][i] = teclado.next();
         }
 
@@ -222,12 +222,21 @@ public class matrices {
             System.out.println(" ");
         }
 
-        int media_alumno = 0;
+        float media_alumno = 0;
         for (int i = 1; i < tabla.length; i++) {
             for (int j = 1; j < tabla[i].length; j++) {
                 media_alumno+=Integer.parseInt(tabla[i][j]);
             }
             System.out.println("La media del alumno " + tabla[i][0] + " : " + (media_alumno/asignaturas));
+        }
+
+        float media_asignatura = 0;
+        for (int i = 1; i < tabla[0].length; i++) {
+            for (int j = 1; j < tabla.length; j++) {
+                media_asignatura+=Integer.parseInt(tabla[j][i]);
+            }
+            System.out.println("La nota media de la asignatura " + tabla[0][i] + ":" + (media_asignatura/estudiantes));
+            media_asignatura=0;
         }
     }
 }
