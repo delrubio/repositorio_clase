@@ -54,46 +54,25 @@ public class sopa_letras {
                         columnas:
                         for (int j = 0; j < sopa[i].length; j++) {
                             if (sopa[i][j].equals(letras_palabra[j])) {
-                                for (int k = j +1; k < sopa[i].length ; k++) {
-                                    if (sopa[i][k].equals(letras_palabra[k])){
-                                        acierto = k;
-                                        continue;
-                                    }else {
-                                        break columnas;
+                                do {
+                                    if (acierto == sopa[i].length - 1){
+                                        System.out.println("Tu palabra está en la fila " + i);
+                                        break;
                                     }
-                                }
-                                if (acierto == sopa[i].length -1);{
-                                    System.out.println("Tu palabra está en la fila " +i);
-                                    break;
-                                }
-                            } else{
-                                if (j - sopa[i].length >= palabra.length() - 1 || sopa.length >= palabra.length() - 1) {
-                                    boolean lado = (j - sopa[i].length >= palabra.length() - 1) ? true : false;
-                                    boolean abajo = (sopa.length >= palabra.length() - 1) ? true : false;
+                                    acierto++;
+                                    continue;
+                                } while (sopa[i][j + 1].equals(letras_palabra[j + 1]));
+                                do {
+                                    if (acierto == sopa[i].length - 1){
+                                        System.out.println("Tu palabra está en la columna " + j);
+                                        break;
+                                    }
+                                    acierto++;
+                                    continue;
+                                } while (sopa[i + 1][j].equals(letras_palabra[i + 1]));
 
-                                    if (lado) {
-                                        for (int g = 1; g < letras_palabra.length; g++) {
-                                            if (sopa[i][j + g].equals(letras_palabra[g])) {
-                                                si++;
-                                                System.out.println(sopa[i][j + g] + letras_palabra[g]);
-                                                if (si == letras_palabra.length - 1) {
-                                                    System.out.println("Palabra encontrada. En la posición: " + i + ", " + j);
-                                                }
-                                            }
-                                        }
-                                    }else if (abajo) {
-                                        si = 0;
-                                    }
-
-                                    for (int x = 1; x < letras_palabra.length - 1; x++) {
-                                        if (sopa[i + x][j].equals(letras_palabra[x])) {
-                                            si++;
-                                            System.out.println(sopa[i + x][j] + letras_palabra[x]);
-                                            if (si == letras_palabra.length - 1) {
-                                                System.out.println("Palabra encontrada. En la posición: " + i + ", " + j);
-                                            }
-                                        }
-                                    }
+                                if (acierto == 0){
+                                    System.out.println("No he encontrado nada");
                                 }
                             }
                         }
