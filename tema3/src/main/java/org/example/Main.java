@@ -1,10 +1,35 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        sopa_letras Sopa_letras = new sopa_letras();
-        sopa_letras.ej_sopa();
+
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("¿Cara o cruz?");
+        String opcion = teclado.next();
+
+        String resultado = sorteo();
+
+        comprobarOpcion(resultado, opcion);
+    }
+
+    public static void comprobarOpcion(String resultado, String opcion){
+    //NO IMPORTA QUE SE LE CAMBIEN EL NOMBRE A LAS VARIABLES, PERO EL ORDEN TIENE QUE SER EL CORRECTO
+        if (resultado.equals(opcion)){
+            System.out.println("Has ganado");
+        }else{
+            System.out.println("Has perdido");
+        }
+    }
+
+    public static String sorteo(){
+        Random random = new Random();
+        String opciones[] = {"cara", "cruz"};
+
+        String resultado = opciones[random.nextInt(2)];
+
+        return resultado;
     }
 }
