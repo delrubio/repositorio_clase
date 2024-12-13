@@ -1,9 +1,8 @@
 package org.example;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class ProyectoVerificarEntradas_David {
+public class ProyectoVerificacionEntradas_David {
 
     static Scanner teclado = new Scanner(System.in);
 
@@ -21,11 +20,27 @@ public class ProyectoVerificarEntradas_David {
 
     public static void verificacionEntradas(int entradas){
         for (int i = 0; i < entradas; i++) {
-            int[] codEntrada = {teclado.nextInt()};
+            int[] codEntrada = convertirEntrada(teclado.next());
             int sumaPares = comprobarPares(codEntrada);
             int sumaImpares = comprobarImpares(codEntrada);
             System.out.println(sumaImpares + sumaPares);
         }
+    }
+
+    public static int[] convertirEntrada(String splitEntrada){
+        String[] numeros = splitEntrada.split("");
+
+        if (numeros.length % 2 != 0){
+            System.out.println("ERROR");
+        }
+
+        int[] codEntrada = new int[numeros.length];
+
+        for (int i = 0; i < codEntrada.length; i++) {
+            codEntrada[i] = Integer.parseInt(numeros[i]);
+        }
+
+        return codEntrada;
     }
 
     public static int comprobarPares(int[] pares){
@@ -36,12 +51,14 @@ public class ProyectoVerificarEntradas_David {
             if (numMayor < pares[i]) {
                 numMayor = pares[i];
             }
+            System.out.println(".");
         }
 
-        for (int i = 0; i < pares.length; i++) {
-            if ((i + 1) % 2 == 0) {
-                sumaPar = (sumaPar + (pares[i] * 2) + numMayor);
+        for (int j = 0; j < pares.length; j++) {
+            if ((j + 1) % 2 == 0) {
+                sumaPar = (sumaPar + (pares[j] * 2) + numMayor);
             }
+            System.out.println(".");
         }
 
         return sumaPar;
