@@ -4,36 +4,59 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Cuadrado {
-    static Scanner teclado;
 
-    public static void main (String[] args){
-        int mumero = pedirNum();
-        boolean verdadero = validarNum(numero);
-    }
+    static Scanner teclado = new Scanner(System.in);
 
-    public static int pedirNum(){
-        System.out.println("Dime un número: ");
-        int num ;
+    public static void main(String[] args){
 
-        try {
-            num = teclado.nextInt();
-        }catch (InputMismatchException e){
-            System.out.println("ERROR: Formato incorrecto");
-            num = -1;
+        int numero = pedirNumero();
+
+        if (numero==-1){
+            System.exit(0);
+        }else{
+
+            if(validarNumero(numero)){
+                int resultado = calcularCuadrado(numero);
+                System.out.println("El resultado es " +  resultado);
+            }else{
+                System.out.println("Formato no válido (1-8 cifras).");
+            }
+
         }
 
-        return num;
+
     }
 
-    public static boolean validarNum(int num){
-        if (Integer.toString(num).matches("\\d{1,8}") || Integer.toString(num).matches("-\\d{1,8}")){
+    public static int pedirNumero(){
+
+        System.out.println("Dame un número...");
+        int numero ;
+
+        try{
+            numero = teclado.nextInt();
+        }catch(InputMismatchException e){
+            System.out.println("ERROR de formato.");
+            numero = -1;
+        }
+
+        return numero;
+
+    }
+
+    public static boolean validarNumero(int numero){
+
+        if (Integer.toString(numero).matches("\\d{1,8}") || Integer.toString(numero).matches("-\\d{1,8}")){
             return true;
-        }else {
+        }else{
             return false;
         }
+
     }
 
-    public static int calcularNum(int num){
-        return num * num;
+    public static int calcularCuadrado(int numero){
+
+        return numero*numero;
+
     }
+
 }
