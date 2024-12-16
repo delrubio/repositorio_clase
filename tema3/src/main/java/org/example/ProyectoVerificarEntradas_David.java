@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class ProyectoVerificacionEntradas_David {
+public class ProyectoVerificarEntradas_David {
 
     static Scanner teclado = new Scanner(System.in);
 
@@ -21,8 +21,8 @@ public class ProyectoVerificacionEntradas_David {
     public static void verificacionEntradas(int entradas){
         for (int i = 0; i < entradas; i++) {
             int[] codEntrada = convertirEntrada(teclado.next());
-            int sumaPares = comprobarPares(codEntrada);
             int sumaImpares = comprobarImpares(codEntrada);
+            int sumaPares = comprobarPares(codEntrada);
             System.out.println(sumaImpares + sumaPares);
         }
     }
@@ -31,7 +31,7 @@ public class ProyectoVerificacionEntradas_David {
         String[] numeros = splitEntrada.split("");
 
         if (numeros.length % 2 != 0){
-            System.out.println("ERROR");
+            System.exit(1);
         }
 
         int[] codEntrada = new int[numeros.length];
@@ -51,14 +51,12 @@ public class ProyectoVerificacionEntradas_David {
             if (numMayor < pares[i]) {
                 numMayor = pares[i];
             }
-            System.out.println(".");
         }
 
         for (int j = 0; j < pares.length; j++) {
             if ((j + 1) % 2 == 0) {
                 sumaPar = (sumaPar + (pares[j] * 2) + numMayor);
             }
-            System.out.println(".");
         }
 
         return sumaPar;
@@ -70,9 +68,8 @@ public class ProyectoVerificacionEntradas_David {
 
         for (int i = 0; i < impares.length; i++) {
 
-            numMenor = impares[i];
-
-            for (int j = 0; j < i; j++) {
+            for (int j = i; j < impares.length; j++) {
+                numMenor = impares[i];
                 if (numMenor > impares[j]){
                     numMenor = impares[j];
                 }
