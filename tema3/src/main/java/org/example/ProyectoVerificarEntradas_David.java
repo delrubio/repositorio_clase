@@ -27,8 +27,14 @@ public class ProyectoVerificarEntradas_David {
      */
 
     public static int numeroEntradas(){
+        int entradas = 0;
 
-        int entradas = teclado.nextInt();
+        try{
+            entradas = teclado.nextInt();
+        }catch (NumberFormatException e1){
+            System.out.println("Error" + e1);
+            System.exit(1);
+        }
 
         return entradas;
     }
@@ -66,8 +72,13 @@ public class ProyectoVerificarEntradas_David {
 
         int[] codEntrada = new int[numeros.length];
 
-        for (int i = 0; i < codEntrada.length; i++) {
-            codEntrada[i] = Integer.parseInt(numeros[i]);
+        try{
+            for (int i = 0; i < codEntrada.length; i++) {
+                codEntrada[i] = Integer.parseInt(numeros[i]);
+            }
+        }catch (NumberFormatException e1){
+            System.out.println("Error" + e1);
+            System.exit(1);
         }
 
         return codEntrada;
