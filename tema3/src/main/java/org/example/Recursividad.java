@@ -28,10 +28,10 @@ public class Recursividad {
         System.out.println("    1 - Dígitos");
         System.out.println("    2 - Potencias");
         System.out.println("    3 - Del Revés");
-        System.out.println("    4 - Binario");
-        System.out.println("    5 - A binario");
-        System.out.println("    6 - Orden alfabético");
-        System.out.println("    7 - Mostrar suma");
+        System.out.println("    4 - Número Binario");
+        System.out.println("    5 - Conversión a Binario");
+        System.out.println("    6 - Orden Alfabético");
+        System.out.println("    7 - Suma de Números");
         int opc = teclado.nextInt();
 
         eleccionUsuario(opc);
@@ -108,7 +108,7 @@ public class Recursividad {
                 eleccionUsuario2();
                 break;
             case 4:
-                System.out.println("\n4 - Binario");
+                System.out.println("\n4 - Número Binario");
                 System.out.println("Dime un número binario");
                 try{
                     numero = teclado.nextInt();
@@ -128,7 +128,7 @@ public class Recursividad {
                 eleccionUsuario2();
                 break;
             case 5:
-                System.out.println("\n5 - A binario");
+                System.out.println("\n5 - Conversión a Binario");
                 System.out.println("Dime un número");
                 try{
                     numero = teclado.nextInt();
@@ -146,7 +146,7 @@ public class Recursividad {
                 eleccionUsuario2();
                 break;
             case 6:
-                System.out.println("\n6 - Orden alfabético");
+                System.out.println("\n6 - Orden Alfabético");
                 System.out.println("Dime una palabra");
                 palabra = teclado.next();
                 palabraChar = palabra.toCharArray();
@@ -160,7 +160,7 @@ public class Recursividad {
                 eleccionUsuario2();
                 break;
             case 7:
-                System.out.println("\n7 - Mostrar suma");
+                System.out.println("\n7 - Suma de Números");
                 System.out.println("Dime un número");
                 try{
                     numero = teclado.nextInt();
@@ -179,7 +179,7 @@ public class Recursividad {
     public static void eleccionUsuario2(){
 
         System.out.println("\nElige una opción:");
-        System.out.println("    1 - Volver al menú principal");
+        System.out.println("    1 - Menú Principal");
         System.out.println("    2 - Salir");
 
         int opc = teclado.nextInt();
